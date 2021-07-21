@@ -1,0 +1,291 @@
+<html>
+<head>
+<title>Reference.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #abb2bf;}
+.s1 { color: #d19a66;}
+.s2 { color: #e06c75;}
+.s3 { color: #98c379;}
+.s4 { color: #5c6370;}
+</style>
+</head>
+<body bgcolor="#282c34">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Reference.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s1">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;</span><span class="s2">html </span><span class="s1">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s2">head</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">meta </span><span class="s1">charset</span><span class="s3">=&quot;utf-8&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">title</span><span class="s0">&gt;Arm Simulator&lt;/</span><span class="s2">title</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">meta </span><span class="s1">content</span><span class="s3">=&quot;width=device-width, initial-scale=1.0&quot; </span><span class="s1">name</span><span class="s3">=&quot;viewport&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">meta </span><span class="s1">content</span><span class="s3">=&quot;&quot; </span><span class="s1">name</span><span class="s3">=&quot;keywords&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">meta </span><span class="s1">content</span><span class="s3">=&quot;&quot; </span><span class="s1">name</span><span class="s3">=&quot;description&quot;</span><span class="s0">&gt;</span>
+
+  <span class="s4">&lt;!-- Bootstrap CSS File --&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">link </span><span class="s1">href</span><span class="s3">=&quot;lib/bootstrap/css/bootstrap.min.css&quot; </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+
+  <span class="s4">&lt;!-- Libraries CSS Files --&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">link </span><span class="s1">href</span><span class="s3">=&quot;lib/animate/animate.min.css&quot; </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">link </span><span class="s1">href</span><span class="s3">=&quot;lib/font-awesome/css/font-awesome.min.css&quot; </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">link </span><span class="s1">href</span><span class="s3">=&quot;lib/ionicons/css/ionicons.min.css&quot; </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">link </span><span class="s1">href</span><span class="s3">=&quot;lib/magnific-popup/magnific-popup.css&quot; </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">link </span><span class="s1">href</span><span class="s3">=&quot;css/sweetalert.css&quot; </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">link </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s1">href</span><span class="s3">=&quot;simulator/panel.css&quot;</span><span class="s0">&gt;</span>
+  <span class="s4">&lt;!-- Main Stylesheet File --&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">link </span><span class="s1">href</span><span class="s3">=&quot;css/style.css&quot; </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script</span><span class="s0">&gt;</span>
+    <span class="s0">function play(url)</span>
+    <span class="s0">{</span>
+      <span class="s0">window.open(&quot;./Videos/&quot;+url);</span>
+    <span class="s0">}</span>
+
+    <span class="s0">function book(url)</span>
+    <span class="s0">{</span>
+      
+      <span class="s0">window.open(&quot;./&quot;+url);</span>
+    <span class="s0">}</span>
+  <span class="s0">&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/</span><span class="s2">head</span><span class="s0">&gt;</span>
+<span class="s0">&lt;</span><span class="s2">style</span><span class="s0">&gt;</span>
+  <span class="s0">#call-to-action</span>
+  <span class="s0">{</span>
+    <span class="s0">padding: 0px;</span>
+  <span class="s0">}</span>
+  <span class="s0">.btn.btn-info.disabled</span>
+  <span class="s0">{</span>
+    <span class="s0">background-color:#17a2b8;</span>
+  <span class="s0">}</span>
+  <span class="s0">.fa {</span>
+    <span class="s0">font-size: large;</span>
+  <span class="s0">}</span>
+  <span class="s0">#head {</span>
+  <span class="s0">width: 100%;</span>
+  <span class="s0">height: 10%;</span>
+  <span class="s0">background: linear-gradient(45deg, rgba(23, 113, 187, 0.8), rgba(205, 143, 29, 0.8)), url(&quot;../img/intro-bg.jpg&quot;) center top no-repeat;</span>
+  <span class="s0">background-size: cover;</span>
+  <span class="s0">position: relative;</span>
+<span class="s0">}</span>
+
+<span class="s0">a {</span>
+	<span class="s0">color:#fff;</span>
+	<span class="s0">text-decoration: none;</span>
+<span class="s0">}</span>
+<span class="s0">a:hover {</span>
+	<span class="s0">color:#fff;</span>
+	<span class="s0">text-decoration: none;</span>
+<span class="s0">}</span>
+
+<span class="s0">a:not([href]):not([tabindex]) {</span>
+    <span class="s0">color: white;</span>
+    <span class="s0">text-decoration: none;</span>
+<span class="s0">}</span>
+<span class="s0">&lt;/</span><span class="s2">style</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s2">body </span><span class="s1">id</span><span class="s3">=&quot;body&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">section </span><span class="s1">id</span><span class="s3">=&quot;head&quot; </span><span class="s1">style</span><span class="s3">=&quot;padding-left:100px;  padding-bottom: 15px; padding-top: 18px;&quot;</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;</span><span class="s2">h6 </span><span class="s1">style</span><span class="s3">=&quot;height:0px;&quot;</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">a</span><span class="s0">&gt;ARM SIMULATOR&lt;/</span><span class="s2">a</span><span class="s0">&gt; &lt;</span><span class="s2">img </span><span class="s1">hspace</span><span class="s3">=&quot;400&quot;</span><span class="s0">&gt; </span>
+		<span class="s0">&lt;/</span><span class="s2">h6</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">section</span><span class="s0">&gt;</span>
+
+  
+  <span class="s0">&lt;</span><span class="s2">section </span><span class="s1">id</span><span class="s3">=&quot;Reference&quot;</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;accordion&quot; </span><span class="s1">id</span><span class="s3">=&quot;accordionExample&quot; </span><span class="s1">style</span><span class="s3">=&quot;width: 1080px; margin-left: 150px; margin-top: 50px;&quot;</span><span class="s0">&gt;</span>
+			
+			<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-header&quot; </span><span class="s1">id</span><span class="s3">=&quot;headingOne&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;mb-0&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">class</span><span class="s3">=&quot;btn btn-link&quot; </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#collapseOne&quot; </span><span class="s1">aria-expanded</span><span class="s3">=&quot;true&quot;</span>
+						 <span class="s1">aria-controls</span><span class="s3">=&quot;collapseOne&quot;</span><span class="s0">&gt;</span>
+						 <span class="s0">Register Organisation</span>
+						<span class="s0">&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;collapseOne&quot; </span><span class="s1">class</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;headingOne&quot; </span><span class="s1">data-parent</span><span class="s3">=&quot;#accordionExample&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">i </span><span class="s1">class</span><span class="s3">=&quot;fa fa-rocket&quot;</span><span class="s0">&gt; The total 16 registers are split into two groups: general purpose and</span>
+							<span class="s0">special purpose registers.&lt;/</span><span class="s2">i</span><span class="s0">&gt;&lt;</span><span class="s2">br</span><span class="s0">&gt;&lt;</span><span class="s2">br</span><span class="s0">&gt;</span>
+	  
+						  <span class="s0">&lt;</span><span class="s2">i </span><span class="s1">class</span><span class="s3">=&quot;fa fa-rocket&quot;</span><span class="s0">&gt;R0-R12: Can be used during common operations to store temporary values,</span>
+							<span class="s0">pointers (locations to memory), etc. R0, for example, can be referred as accumulator during the</span>
+							<span class="s0">arithmetic operations or for storing the result of a previously called function.  &lt;/</span><span class="s2">i</span><span class="s0">&gt; &lt;</span><span class="s2">br</span><span class="s0">&gt;&lt;</span><span class="s2">br</span><span class="s0">&gt;</span>
+	  
+						  <span class="s0">&lt;</span><span class="s2">i </span><span class="s1">class</span><span class="s3">=&quot;fa fa-rocket&quot;</span><span class="s0">&gt;R13: SP (Stack Pointer). The Stack Pointer points to the top of the</span>
+							<span class="s0">stack. The stack is an area of memory used for function-specific storage, which is reclaimed</span>
+							<span class="s0">when the function returns.&lt;/</span><span class="s2">i</span><span class="s0">&gt; &lt;</span><span class="s2">br</span><span class="s0">&gt;&lt;</span><span class="s2">br</span><span class="s0">&gt;</span>
+	  
+						  <span class="s0">&lt;</span><span class="s2">i </span><span class="s1">class</span><span class="s3">=&quot;fa fa-rocket&quot;</span><span class="s0">&gt;R14: LR (Link Register). When a function call is made, the Link Register</span>
+							<span class="s0">gets updated with a memory address referencing the next instruction where the function was</span>
+							<span class="s0">initiated from. Doing this allows the program return to the “parent” function that initiated</span>
+							<span class="s0">the “child” function call after the “child” function is finished.&lt;/</span><span class="s2">i</span><span class="s0">&gt; &lt;</span><span class="s2">br</span><span class="s0">&gt;&lt;</span><span class="s2">br</span><span class="s0">&gt;</span>
+	  
+						  <span class="s0">&lt;</span><span class="s2">i </span><span class="s1">class</span><span class="s3">=&quot;fa fa-rocket&quot;</span><span class="s0">&gt;R15: PC (Program Counter). The Program Counter is automatically</span>
+							<span class="s0">incremented by the size of the instruction executed. This size is always 4 bytes in ARM state</span>
+							<span class="s0">and 2 bytes in THUMB mode. When a branch instruction is being executed, the PC holds the</span>
+							<span class="s0">destination address.&lt;/</span><span class="s2">i</span><span class="s0">&gt;</span>
+	  
+					<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+			<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-header&quot; </span><span class="s1">id</span><span class="s3">=&quot;headingTwo&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;mb-0&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">class</span><span class="s3">=&quot;btn btn-link collapsed&quot; </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#collapseTwo&quot;</span>
+						 <span class="s1">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s1">aria-controls</span><span class="s3">=&quot;collapseTwo&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">Mnemonic Operations</span>
+						<span class="s0">&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;collapseTwo&quot; </span><span class="s1">class</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;headingTwo&quot; </span><span class="s1">data-parent</span><span class="s3">=&quot;#accordionExample&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">img </span><span class="s1">src</span><span class="s3">=&quot;img/a1.png&quot; </span><span class="s1">width</span><span class="s3">=&quot;100%&quot; </span><span class="s1">height</span><span class="s3">=&quot;auto&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+			<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-header&quot; </span><span class="s1">id</span><span class="s3">=&quot;headingThree&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;mb-0&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">class</span><span class="s3">=&quot;btn btn-link collapsed&quot; </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#collapseThree&quot;</span>
+						 <span class="s1">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s1">aria-controls</span><span class="s3">=&quot;collapseThree&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">Conditional Execution</span>
+						<span class="s0">&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;collapseThree&quot; </span><span class="s1">class</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;headingThree&quot; </span><span class="s1">data-parent</span><span class="s3">=&quot;#accordionExample&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">img </span><span class="s1">src</span><span class="s3">=&quot;img/b1.png&quot; </span><span class="s1">width</span><span class="s3">=&quot;100%&quot; </span><span class="s1">height</span><span class="s3">=&quot;auto&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+      
+      <span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-header&quot; </span><span class="s1">id</span><span class="s3">=&quot;headingThree&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;mb-0&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">class</span><span class="s3">=&quot;btn btn-link collapsed&quot; </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#collapseFour&quot;</span>
+						 <span class="s1">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s1">aria-controls</span><span class="s3">=&quot;collapseFour&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">File Execution</span>
+						<span class="s0">&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;collapseFour&quot; </span><span class="s1">class</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;headingFour&quot; </span><span class="s1">data-parent</span><span class="s3">=&quot;#accordionExample&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;1. Click CHOOSE button.&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;2. Select the file for Execution.&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;3. Click SUBMIT button to execute the file.&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+      <span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-header&quot; </span><span class="s1">id</span><span class="s3">=&quot;headingThree&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;mb-0&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">class</span><span class="s3">=&quot;btn btn-link collapsed&quot; </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#collapseFive&quot;</span>
+						 <span class="s1">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s1">aria-controls</span><span class="s3">=&quot;collapseFive&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">File Format</span>
+						<span class="s0">&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;collapseFive&quot; </span><span class="s1">class</span><span class="s3">=&quot;collapse&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;headingFive&quot; </span><span class="s1">data-parent</span><span class="s3">=&quot;#accordionExample&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;1. Each word of the instruction must end with &quot;,  &quot;(comma and space), except the last.&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;2. The end of file is recognised with (#).&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;3. The file should be of txt format.&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h4</span><span class="s0">&gt;Example (File contents)&lt;/</span><span class="s2">h4</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;&lt;</span><span class="s2">img </span><span class="s1">hspace</span><span class="s3">=&quot;25&quot;</span><span class="s0">&gt;MOV, NE, R0, #0&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;&lt;</span><span class="s2">img </span><span class="s1">hspace</span><span class="s3">=&quot;25&quot;</span><span class="s0">&gt;MOV, EQ, R1, #20&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;&lt;</span><span class="s2">img </span><span class="s1">hspace</span><span class="s3">=&quot;25&quot;</span><span class="s0">&gt;MOV, EQ, R0, #10&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;&lt;</span><span class="s2">img </span><span class="s1">hspace</span><span class="s3">=&quot;25&quot;</span><span class="s0">&gt;ADD, EQ, R2, R0, R1&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s2">h5</span><span class="s0">&gt;&lt;</span><span class="s2">img </span><span class="s1">hspace</span><span class="s3">=&quot;25&quot;</span><span class="s0">&gt;#&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+		<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">section</span><span class="s0">&gt;</span>
+
+
+  <span class="s4">&lt;!-- JavaScript Libraries --&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;lib/jquery/jquery.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;lib/jquery/jquery-migrate.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;lib/bootstrap/js/bootstrap.bundle.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;lib/easing/easing.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;lib/wow/wow.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;lib/superfish/hoverIntent.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;lib/superfish/superfish.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;lib/magnific-popup/magnific-popup.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;js/ARM.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+
+  <span class="s4">&lt;!-- Contact Form JavaScript File --&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;contactform/contactform.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+
+  <span class="s4">&lt;!-- Template Main Javascript File --&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;js/main.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;js/popper.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;js/collapse.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;js/tooltip.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;js/popover.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;css/sweetalert.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;</span><span class="s2">script</span><span class="s0">&gt;</span>
+    <span class="s0">var firefoxTestDone = false</span>
+    <span class="s0">function reportFirefoxTestResult(result) {</span>
+      <span class="s0">if (!firefoxTestDone) {</span>
+        <span class="s0">$('#ff-bug-test-result')</span>
+          <span class="s0">.addClass(result ? 'text-success' : 'text-danger')</span>
+          <span class="s0">.text(result ? 'PASS' : 'FAIL')</span>
+      <span class="s0">}</span>
+    <span class="s0">}</span>
+
+    <span class="s0">$(function () {</span>
+      <span class="s0">$('[data-toggle=&quot;popover&quot;]').popover()</span>
+      <span class="s0">$('[data-toggle=&quot;tooltip&quot;]').tooltip()</span>
+
+      <span class="s0">$('#tall-toggle').click(function () {</span>
+        <span class="s0">$('#tall').toggle()</span>
+      <span class="s0">})</span>
+
+      <span class="s0">$('#ff-bug-input').one('focus', function () {</span>
+        <span class="s0">$('#firefoxModal').on('focus', reportFirefoxTestResult.bind(false))</span>
+        <span class="s0">$('#ff-bug-input').on('focus', reportFirefoxTestResult.bind(true))</span>
+      <span class="s0">})</span>
+
+      <span class="s0">$('#btnPreventModal').on('click', function () {</span>
+        <span class="s0">$('#firefoxModal').one('shown.bs.modal', function () {</span>
+          <span class="s0">$(this).modal('hide')</span>
+        <span class="s0">})</span>
+          <span class="s0">.one('hide.bs.modal', function (event) {</span>
+            <span class="s0">event.preventDefault()</span>
+            <span class="s0">if ($(this).data('bs.modal')._isTransitioning) {</span>
+              <span class="s0">console.error('Modal plugin should not set _isTransitioning when hide event is prevented')</span>
+            <span class="s0">} else {</span>
+              <span class="s0">console.log('Test passed')</span>
+              <span class="s0">$(this).modal('hide') // work as expected</span>
+            <span class="s0">}</span>
+          <span class="s0">})</span>
+          <span class="s0">.modal('show')</span>
+      <span class="s0">})</span>
+
+      <span class="s0">// Test transition duration</span>
+      <span class="s0">var t0, t1;</span>
+
+      <span class="s0">$('#slowModal').on('shown.bs.modal', function () {</span>
+        <span class="s0">t1 = performance.now()</span>
+        <span class="s0">console.log('transition-duration took ' + (t1 - t0) + 'ms.')</span>
+      <span class="s0">}).on('show.bs.modal', function () {</span>
+        <span class="s0">t0 = performance.now()</span>
+      <span class="s0">})</span>
+
+    <span class="s0">})</span>
+  <span class="s0">&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/</span><span class="s2">body</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;/</span><span class="s2">html</span><span class="s0">&gt;</span></pre>
+</body>
+</html>

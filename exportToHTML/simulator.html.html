@@ -1,0 +1,631 @@
+<html>
+<head>
+<title>simulator.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #abb2bf;}
+.s1 { color: #d19a66;}
+.s2 { color: #e06c75;}
+.s3 { color: #98c379;}
+.s4 { color: #5c6370;}
+</style>
+</head>
+<body bgcolor="#282c34">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+simulator.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s1">html</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s2">html</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s2">head </span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">title</span><span class="s0">&gt;ARM SIMULATOR&lt;/</span><span class="s2">title</span><span class="s0">&gt;</span>
+
+	<span class="s0">&lt;</span><span class="s2">meta </span><span class="s1">charset</span><span class="s3">=&quot;UTF-8&quot; </span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">meta </span><span class="s1">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s1">content</span><span class="s3">=&quot;width=device-width, initial-scale=1.0&quot; </span><span class="s0">&gt;</span>
+
+	<span class="s4">&lt;!--  CSS FILES USED   --&gt;</span>
+
+	<span class="s0">&lt;</span><span class="s2">link </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s1">href</span><span class="s3">=&quot;simulator/style.css&quot;</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">link </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s1">href</span><span class="s3">=&quot;simulator/bootstrap.min.css&quot;</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">link </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s1">href</span><span class="s3">=&quot;simulator/panel.css&quot;</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">link </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s1">href</span><span class="s3">=&quot;simulator/dataTables.bootstrap.css&quot; </span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">link </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s1">href</span><span class="s3">=&quot;simulator/dataTables.responsive.css&quot; </span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">link </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s1">href</span><span class="s3">=&quot;simulator/sweet/sweetalert2.min.css&quot; </span><span class="s0">&gt;</span>
+
+	<span class="s4">&lt;!--  JAVASCRIPT PLUGINS USED  --&gt;</span>
+
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/jquery-2.1.4.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/popper.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/plugins.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/main.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/jquery.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/bootstrap.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/popover.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/sweet/sweetalert2.min.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+
+	<span class="s4">&lt;!--  JAVASCRIPT FILES FOR SIMULATOR  --&gt;</span>
+
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/js for simulator/FRONT.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/js for simulator/DIRECTING.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">script </span><span class="s1">src</span><span class="s3">=&quot;simulator/js for simulator/MNEMONIC_FUNCTIONS.js&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+
+	
+<span class="s0">&lt;/</span><span class="s2">head</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s2">script</span><span class="s0">&gt;</span>
+
+	<span class="s0">//   USED FOR DIABLING BACK BUTTON</span>
+
+	<span class="s0">history.pushState(null,null,location.href);</span>
+	<span class="s0">window.onpopstate=function()</span>
+	<span class="s0">{</span>
+		<span class="s0">history.go(1);</span>
+	<span class="s0">};</span>
+
+	
+<span class="s0">&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s2">style</span><span class="s0">&gt;</span>
+	<span class="s0">.modal-contentgpr</span>
+	<span class="s0">{</span>
+		<span class="s0">position: relative;</span>
+    <span class="s0">display: -webkit-box;</span>
+    <span class="s0">display: -ms-flexbox;</span>
+    <span class="s0">display: flex;</span>
+    <span class="s0">-webkit-box-orient: vertical;</span>
+    <span class="s0">-webkit-box-direction: normal;</span>
+    <span class="s0">-ms-flex-direction: column;</span>
+    <span class="s0">flex-direction: column;</span>
+    <span class="s0">width: 180%;</span>
+    <span class="s0">pointer-events: auto;</span>
+    <span class="s0">background-color: #fff;</span>
+    <span class="s0">background-clip: padding-box;</span>
+    <span class="s0">border: 1px solid rgba(0,0,0,.2);</span>
+    <span class="s0">border-radius: .3rem;</span>
+	<span class="s0">outline: 0;</span>
+	<span class="s0">right:310px;</span>
+	<span class="s0">left:auto;</span>
+	<span class="s0">top:20;</span>
+    <span class="s0">}</span>
+	<span class="s0">#upload-photo </span>
+	<span class="s0">{</span>
+        <span class="s0">opacity: 0;</span>
+        <span class="s0">position: absolute;</span>
+        <span class="s0">z-index: -1;</span>
+    <span class="s0">}</span>
+	<span class="s0">#call-to-action {</span>
+    <span class="s0">overflow: hidden;</span>
+    <span class="s0">background: linear-gradient(rgba(40, 122, 177, 0.65), rgba(199, 211, 26, 0.2)), fixed center center;</span>
+    <span class="s0">background-size: cover;</span>
+    <span class="s0">padding: 50px 0;</span>
+<span class="s0">}</span>
+<span class="s0">a {</span>
+	<span class="s0">color:#fff;</span>
+	<span class="s0">text-decoration: none;</span>
+<span class="s0">}</span>
+<span class="s0">a:hover {</span>
+	<span class="s0">color:#fff;</span>
+	<span class="s0">text-decoration: none;</span>
+<span class="s0">}</span>
+
+<span class="s0">a:not([href]):not([tabindex]) {</span>
+    <span class="s0">color: white;</span>
+    <span class="s0">text-decoration: none;</span>
+<span class="s0">}</span>
+
+<span class="s0">#head {</span>
+  <span class="s0">width: 100%;</span>
+  <span class="s0">height: 10%;</span>
+  <span class="s0">background: linear-gradient(45deg, rgba(23, 113, 187, 0.8), rgba(205, 143, 29, 0.8)), url(&quot;../img/intro-bg.jpg&quot;) center top no-repeat;</span>
+  <span class="s0">background-size: cover;</span>
+  <span class="s0">position: relative;</span>
+<span class="s0">}</span>
+<span class="s0">&lt;/</span><span class="s2">style</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s2">body </span><span class="s1">onload</span><span class="s3">=&quot;tour();&quot; </span><span class="s1">onkeydown</span><span class="s3">=&quot;return (event.keyCode != 116 &amp;&amp; event.keyCode != 82)&quot;</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;</span><span class="s2">section </span><span class="s1">id</span><span class="s3">=&quot;head&quot; </span><span class="s1">style</span><span class="s3">=&quot;padding-left:100px;  padding-bottom: 15px; padding-top: 18px;&quot;</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;</span><span class="s2">h6</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">a </span><span class="s1">href</span><span class="s3">=&quot;#&quot;</span><span class="s0">&gt;ARM SIMULATOR&lt;/</span><span class="s2">a</span><span class="s0">&gt; &lt;</span><span class="s2">img </span><span class="s1">hspace</span><span class="s3">=&quot;400&quot;</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">a </span><span class="s1">href</span><span class="s3">=&quot;Index.html&quot;</span><span class="s0">&gt;Home&lt;/</span><span class="s2">a</span><span class="s0">&gt;&lt;</span><span class="s2">img </span><span class="s1">hspace</span><span class="s3">=&quot;25&quot;</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">a </span><span class="s1">href</span><span class="s3">=&quot;#&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;reference();&quot;</span><span class="s0">&gt;Reference&lt;/</span><span class="s2">a</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;/</span><span class="s2">h6</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">section</span><span class="s0">&gt;</span>
+
+
+	<span class="s0">&lt;</span><span class="s2">table </span><span class="s1">style</span><span class="s3">=&quot;margin-top: 10px;&quot;</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;</span><span class="s2">tr</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">valign</span><span class="s3">=&quot;top&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;wrapper&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;col-lg-12&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel panel-default&quot;</span><span class="s0">&gt;</span>
+
+								<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-heading&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-info disabled&quot;</span><span class="s0">&gt;CODE PAD&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+								<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-body&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+
+									<span class="s0">&lt;</span><span class="s2">table </span><span class="s1">cellspacing</span><span class="s3">=&quot;5&quot; </span><span class="s1">cellpadding</span><span class="s3">=&quot;5&quot;</span><span class="s0">&gt;</span>
+
+										<span class="s0">&lt;</span><span class="s2">tr </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;clr();&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot; </span><span class="s1">title</span><span class="s3">=&quot;CLEAR&quot;</span>
+												 <span class="s1">data-content</span><span class="s3">=&quot;CLEARS THE INSTRUCTION&quot;</span><span class="s0">&gt;</span>
+													<span class="s0">CLEAR</span>
+												<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+											<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;back();&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot; </span><span class="s1">title</span><span class="s3">=&quot;BACK&quot;</span>
+												 <span class="s1">data-content</span><span class="s3">=&quot;CLEARS THE LAST MNEMONIC&quot;</span><span class="s0">&gt;</span>
+													<span class="s0">BACK</span>
+												<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+											
+											<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">style</span><span class="s3">=&quot;padding-bottom:10px;&quot;</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary mb-1&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;direct();&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;modal&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#smallmodal2&quot;</span>
+									 <span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">title</span><span class="s3">=&quot;EXECUTED INSTRUCTIONS.&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;LIST OF INSTRUCTIONS THAT HAS BEEN EXECUTED.&quot;</span><span class="s0">&gt;</span>
+										<span class="s0">SUBMIT</span>
+									<span class="s0">&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+											<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">for</span><span class="s3">=&quot;upload-photo&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot; </span><span class="s1">title</span><span class="s3">=&quot;CHOOSE&quot;</span>
+												 <span class="s1">data-content</span><span class="s3">=&quot;CHOOSE A FILE FROM FILE SYSTEM&quot;</span><span class="s0">&gt;</span>
+													<span class="s0">CHOOSE</span>
+												<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">input </span><span class="s1">type</span><span class="s3">=&quot;file&quot; </span><span class="s1">name</span><span class="s3">=&quot;photo&quot; </span><span class="s1">id</span><span class="s3">=&quot;upload-photo&quot; </span><span class="s1">accept</span><span class="s3">='text/plain' </span><span class="s1">onchange</span><span class="s3">='openFile(event)' </span><span class="s0">/&gt;</span>
+											<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+										<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+
+									<span class="s0">&lt;/</span><span class="s2">table</span><span class="s0">&gt;</span>
+
+									<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;wrapper&quot;</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;col-lg-12&quot;</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel panel-default&quot;</span><span class="s0">&gt;</span>
+
+													<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-heading&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-info disabled&quot;</span><span class="s0">&gt;INSTRUCTION&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+													<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-body&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;</span><span class="s2">p </span><span class="s1">id</span><span class="s3">=&quot;minstruction&quot;</span><span class="s0">&gt;&lt;/</span><span class="s2">p</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+												<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+									<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;wrapper&quot;</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;col-lg-12&quot;</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel panel-default&quot;</span><span class="s0">&gt;</span>
+
+													<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-heading&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot; </span><span class="s1">id</span><span class="s3">=&quot;dhead&quot;</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-info disabled&quot;</span><span class="s0">&gt;MNEMONICS&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+													<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-body&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot; </span><span class="s1">id</span><span class="s3">=&quot;d&quot;</span><span class="s0">&gt;</span>
+
+														<span class="s0">&lt;</span><span class="s2">table </span><span class="s1">cellspacing</span><span class="s3">=&quot;5&quot; </span><span class="s1">cellpadding</span><span class="s3">=&quot;5&quot;</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;</span><span class="s2">tr </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('ADC00');&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;ADC&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;ADDITION WITH CARRY.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">ADC</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('ADD01')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;ADD&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;ADDITION OF TWO OPERANDS&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">ADD</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('AND02')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;AND&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;BITWISE AND OF TWO OPERANDS.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">AND</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('BIC03')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;BIC&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;BITWISE AND WITH THE COMPLEMENT OF SECOND OPERATOR.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">BIC</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;</span><span class="s2">tr </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('CMN04')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;CMN&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;ADDITION OF TWO OPERANDS AND UPDATES THE FLAG VALUES.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">CMN</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('CMP05')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;CMP&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;SUBTRACTION OF TWO OPERANDS AND UPDATES THE FLAG VALUES.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">CMP</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('EOR06')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;EOR&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;EXCLUSIVE OR(XOR) ON TWO OPERANDS.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">EOR</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('MOV07')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;MOV&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;MOVES THE VALUE TO THE SPECIFIED REGISTER.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">MOV</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;</span><span class="s2">tr </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('MVN08')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;MVN&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;MOVES THE ONE'S COMPLEMENT OF THE VALUE INTO THE REGISTER.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">MVN</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('ORR09')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;ORR&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;INCLUSIVE BITWISE OR (OR) OF TWO OPERANDS.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">ORR</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('RSB10')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;RSB&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;REVERSE SUBTRACTION.(R0, R1 =&gt; R1 - R0.).&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">RSB</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('RSC11')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;RSC&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;REVERSE SUBTRACTION WITH CARRY.(R0, R1 =&gt; (R1 - R0) - NOT(CARRY FLAG). ).&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">RSC</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;</span><span class="s2">tr </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('SBC12')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;SBC&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;SUBTRACTION WITH CARRY.(R0, R1 =&gt; (R0 - R1) - NOT(CARRY FLAG) ).&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">SBC</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('SUB13')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;SUB&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;SUBTRACTION.(R0, R1 =&gt; R0 - R1).&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">SUB</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('TEQ14')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;TEQ&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;EOR ON TWO OPERANDS AND UPDATES THE FLAG REGISTERS.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">TEQ</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('TST15')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;TST&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;AND ON TWO OPERANDS AND UPDATES THE FLAG REGISTERS.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">TST</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;</span><span class="s2">tr </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('MUL17')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;MUL&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;MULTIPLICATION OF TWO OPERANDS.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">MUL</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('LDR18')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;LDR&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;LOADS THE VALUE FROM THE SPECIFIED ADDRESS INTO THE REGISTER MENTIONED IN THE INSTRUCTION.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">LDR</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+																<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;btn-group btn-group-toggle&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;buttons&quot;</span><span class="s0">&gt;</span>
+																		<span class="s0">&lt;</span><span class="s2">label </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary&quot; </span><span class="s1">onclick</span><span class="s3">=&quot;mnemonic('STR19')&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;popover&quot;</span>
+																		 <span class="s1">title</span><span class="s3">=&quot;STR&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;STORES THE VALUE OF THE REGISTER TO THE ADDRESS MENTIONED IN THE INSTRUCTION.&quot;</span><span class="s0">&gt;</span>
+																			<span class="s0">STR</span>
+																		<span class="s0">&lt;/</span><span class="s2">label</span><span class="s0">&gt;</span>
+																	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+															<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+
+														<span class="s0">&lt;/</span><span class="s2">table</span><span class="s0">&gt;</span>
+
+													<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+												<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+							<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+			<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">valign</span><span class="s3">=&quot;top&quot; </span><span class="s1">width</span><span class="s3">=&quot;400&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;wrapper&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;col-lg-12&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel panel-default&quot;</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-heading&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-info disabled&quot;</span><span class="s0">&gt;INSTRUCTION TABLE&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+
+								<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-body&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot; </span><span class="s1">style</span><span class="s3">=&quot;padding-bottom: 28px; padding-top: 27px;&quot;</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary mb-1&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;modal&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#smallmodal2&quot;</span>
+									 <span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">title</span><span class="s3">=&quot;EXECUTED INSTRUCTIONS.&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;LIST OF INSTRUCTIONS THAT HAS BEEN EXECUTED.&quot;</span><span class="s0">&gt;</span>
+										<span class="s0">INSTRUCTION</span>
+									<span class="s0">&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal fade&quot; </span><span class="s1">id</span><span class="s3">=&quot;smallmodal2&quot; </span><span class="s1">tabindex</span><span class="s3">=&quot;-1&quot; </span><span class="s1">role</span><span class="s3">=&quot;dialog&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;smallmodalLabel&quot; </span><span class="s1">style</span><span class="s3">=&quot;display: none;&quot;</span>
+									 <span class="s1">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-dialog modal-sm&quot; </span><span class="s1">role</span><span class="s3">=&quot;document&quot;</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-content&quot; </span><span class="s1">style</span><span class="s3">=&quot;width: 500px; right: 130px;&quot;</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-header&quot;</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;modal-title&quot; </span><span class="s1">id</span><span class="s3">=&quot;smallmodalLabel&quot;</span><span class="s0">&gt;INSTRUCTIONS&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+												<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-body&quot;</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;</span><span class="s2">table </span><span class="s1">class</span><span class="s3">=&quot;table table-dark&quot; </span><span class="s1">id</span><span class="s3">=&quot;instruction&quot;</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;</span><span class="s2">thead</span><span class="s0">&gt;</span>
+															<span class="s0">&lt;</span><span class="s2">tr</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;COUNT&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+																<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">width</span><span class="s3">=&quot;400&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;INSTRUCTION&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+															<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;/</span><span class="s2">thead</span><span class="s0">&gt;</span>
+
+														<span class="s0">&lt;</span><span class="s2">tbody </span><span class="s1">id</span><span class="s3">=&quot;itbody&quot;</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;/</span><span class="s2">tbody</span><span class="s0">&gt;</span>
+
+													<span class="s0">&lt;/</span><span class="s2">table</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+											<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+							<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+			<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">valign</span><span class="s3">=&quot;top&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;wrapper&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;col-lg-12&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel panel-default&quot;</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-heading&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-info disabled&quot;</span><span class="s0">&gt;CPSR AND GPR TABLE&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+								<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-body&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot; </span><span class="s1">style</span><span class="s3">=&quot;padding-bottom: 28px; padding-top: 27px;&quot;</span><span class="s0">&gt;</span>
+
+
+									<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary mb-1&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;modal&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#largeModal&quot;</span>
+									 <span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">title</span><span class="s3">=&quot;CURRENT PROGRAM STATUS REGISTER.&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;LIST OF FLAG REGISTER VALUES.&quot;</span><span class="s0">&gt;CPSR&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary mb-1&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;modal&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#scrollmodal&quot;</span>
+									 <span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot; </span><span class="s1">title</span><span class="s3">=&quot;GENERAL PURPOSE REGISTER.&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;LIST OF GENERAL PURPOSE REGISTER VALUES.&quot;</span><span class="s0">&gt;GPR&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+
+									<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal fade&quot; </span><span class="s1">id</span><span class="s3">=&quot;largeModal&quot; </span><span class="s1">tabindex</span><span class="s3">=&quot;-1&quot; </span><span class="s1">role</span><span class="s3">=&quot;dialog&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;largeModalLabel&quot;</span>
+									 <span class="s1">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-dialog modal-lg&quot; </span><span class="s1">role</span><span class="s3">=&quot;document&quot;</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-content&quot;</span><span class="s0">&gt;</span>
+
+												<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-header&quot;</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;modal-title&quot; </span><span class="s1">id</span><span class="s3">=&quot;largeModalLabel&quot;</span><span class="s0">&gt;CPSR&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+												<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-body&quot;</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;</span><span class="s2">table </span><span class="s1">class</span><span class="s3">=&quot;table table-dark&quot; </span><span class="s1">id</span><span class="s3">=&quot;cpsr&quot;</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;</span><span class="s2">thead</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">th</span><span class="s0">&gt;N&lt;/</span><span class="s2">th</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">th</span><span class="s0">&gt;Z&lt;/</span><span class="s2">th</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">th</span><span class="s0">&gt;C&lt;/</span><span class="s2">th</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">th</span><span class="s0">&gt;V&lt;/</span><span class="s2">th</span><span class="s0">&gt;</span>
+			
+			<span class="s0">&lt;/</span><span class="s2">thead</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;</span><span class="s2">tr</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">id</span><span class="s3">=&quot;N&quot;</span><span class="s0">&gt;0&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">id</span><span class="s3">=&quot;Z&quot;</span><span class="s0">&gt;0&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">id</span><span class="s3">=&quot;C&quot;</span><span class="s0">&gt;0&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">id</span><span class="s3">=&quot;V&quot;</span><span class="s0">&gt;0&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+			
+		<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">table</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+
+	<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal fade&quot; </span><span class="s1">id</span><span class="s3">=&quot;scrollmodal&quot; </span><span class="s1">tabindex</span><span class="s3">=&quot;-1&quot; </span><span class="s1">role</span><span class="s3">=&quot;dialog&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;scrollmodalLabel&quot; </span><span class="s1">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-dialog modal-lg&quot; </span><span class="s1">role</span><span class="s3">=&quot;document&quot;</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-contentgpr&quot;</span><span class="s0">&gt;</span>
+
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-header&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;modal-title&quot; </span><span class="s1">id</span><span class="s3">=&quot;scrollmodalLabel&quot; </span><span class="s1">style</span><span class="s3">=&quot;padding-left:600px;&quot;</span><span class="s0">&gt;GENERAL PURPOSE REGISTER&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-body&quot;</span><span class="s0">&gt;</span>
+
+					<span class="s0">&lt;</span><span class="s2">table </span><span class="s1">class</span><span class="s3">=&quot;table table-dark&quot; </span><span class="s1">id</span><span class="s3">=&quot;gpr&quot; </span><span class="s1">width</span><span class="s3">=&quot;140%&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">tr</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;COUNT&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;INSTRUCTION&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R0&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R1&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R2&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R3&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R4&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R5&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R6&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R7&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R8&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R9&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R10&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R11&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R12&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R13&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R14&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;R15&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;/</span><span class="s2">table</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+
+	<span class="s0">&lt;</span><span class="s2">td </span><span class="s1">valign</span><span class="s3">=&quot;top&quot;</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">id</span><span class="s3">=&quot;wrapper&quot;</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;col-lg-12&quot;</span><span class="s0">&gt;</span>
+					<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel panel-default&quot;</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-heading&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-info disabled&quot;</span><span class="s0">&gt;CPSR AND GPR TABLE&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+						<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;panel-body&quot; </span><span class="s1">align</span><span class="s3">=&quot;center&quot; </span><span class="s1">style</span><span class="s3">=&quot;padding-bottom: 28px; padding-top: 27px;&quot;</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">button </span><span class="s1">type</span><span class="s3">=&quot;button&quot; </span><span class="s1">class</span><span class="s3">=&quot;btn btn-secondary mb-1&quot; </span><span class="s1">data-toggle</span><span class="s3">=&quot;modal&quot; </span><span class="s1">data-target</span><span class="s3">=&quot;#smallmodal&quot; </span><span class="s1">data-trigger</span><span class="s3">=&quot;hover&quot;</span>
+							 <span class="s1">title</span><span class="s3">=&quot;STACK MEMORY.&quot; </span><span class="s1">data-content</span><span class="s3">=&quot;LIST OF VALUES THAT IS STORED IN MEMORY.&quot;</span><span class="s0">&gt;</span>
+								<span class="s0">STACK TABLE</span>
+							<span class="s0">&lt;/</span><span class="s2">button</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal fade&quot; </span><span class="s1">id</span><span class="s3">=&quot;smallmodal&quot; </span><span class="s1">tabi ndex</span><span class="s3">=&quot;-1&quot; </span><span class="s1">role</span><span class="s3">=&quot;dialog&quot; </span><span class="s1">aria-labelledby</span><span class="s3">=&quot;smallmodalLabel&quot; </span><span class="s1">style</span><span class="s3">=&quot;display: none;&quot;</span>
+							 <span class="s1">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-dialog modal-sm&quot; </span><span class="s1">role</span><span class="s3">=&quot;document&quot;</span><span class="s0">&gt;</span>
+									<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-content&quot;</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-header&quot;</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;</span><span class="s2">h5 </span><span class="s1">class</span><span class="s3">=&quot;modal-title&quot; </span><span class="s1">id</span><span class="s3">=&quot;smallmodalLabel&quot;</span><span class="s0">&gt;STACK TABLE&lt;/</span><span class="s2">h5</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+										<span class="s0">&lt;</span><span class="s2">div </span><span class="s1">class</span><span class="s3">=&quot;modal-body&quot;</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;</span><span class="s2">table </span><span class="s1">class</span><span class="s3">=&quot;table table-dark&quot; </span><span class="s1">id</span><span class="s3">=&quot;stack&quot;</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;</span><span class="s2">tbody</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;</span><span class="s2">tr</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;ADDRESS&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+														<span class="s0">&lt;</span><span class="s2">td</span><span class="s0">&gt;DATA&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+													<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+												<span class="s0">&lt;/</span><span class="s2">tbody</span><span class="s0">&gt;</span>
+											<span class="s0">&lt;/</span><span class="s2">table</span><span class="s0">&gt;</span>
+										<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+									<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+								<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+							<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+						<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+
+					<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+				<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+			<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+		<span class="s0">&lt;/</span><span class="s2">div</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">td</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">tr</span><span class="s0">&gt;</span>
+	<span class="s0">&lt;/</span><span class="s2">table</span><span class="s0">&gt;</span>
+
+	<span class="s0">&lt;</span><span class="s2">script</span><span class="s0">&gt;</span>
+
+		<span class="s0">function reference() {</span>
+			<span class="s0">window.open(&quot;./Reference.html&quot;);</span>
+		<span class="s0">}</span>
+		<span class="s0">$(document).ready(function () {</span>
+			<span class="s0">$('[data-toggle=&quot;modal&quot;]').popover();</span>
+		<span class="s0">});</span>
+		<span class="s0">$(document).ready(function () {</span>
+			<span class="s0">$('[data-toggle=&quot;popover&quot;]').popover();</span>
+		<span class="s0">});</span>
+
+		<span class="s0">function refresh() {</span>
+			<span class="s0">$('[data-toggle=&quot;popover&quot;]').popover();</span>
+		<span class="s0">}</span>
+
+	<span class="s0">&lt;/</span><span class="s2">script</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;/</span><span class="s2">body</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;/</span><span class="s2">html</span><span class="s0">&gt;</span></pre>
+</body>
+</html>
